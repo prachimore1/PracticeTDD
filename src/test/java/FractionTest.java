@@ -1,6 +1,8 @@
 import com.java.Fraction;
 
 import static  org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+
 import org.junit.Test;
 
 public class FractionTest {
@@ -45,6 +47,38 @@ public class FractionTest {
     public void NegativeFractionPlusNegativeFraction() {
         assertEquals(new Fraction(-3,4), new Fraction(-1,2).plus(new Fraction(-1,4)));
         assertEquals(new Fraction(1,4), new Fraction(-1,-2).plus(new Fraction(-1,4)));
+    }
+
+    @Test
+    public void NegativeFractionSubtractFromPositiveFraction() {
+        assertEquals(new Fraction(1,4), new Fraction(1,2).subtract(new Fraction(1,4)));
+    }
+
+    @Test
+    public void NegativeFractionSubtractFromNegativeFraction() {
+        assertEquals(new Fraction(-1,12), new Fraction(1,4).subtract(new Fraction(1,3)));
+    }
+
+    @Test
+    public void FractionMultiplyFraction() {
+        assertEquals(new Fraction(1,4), new Fraction(1,2).mutiply(new Fraction(1,2)));
+        assertEquals(new Fraction(1,6), new Fraction(1,4).mutiply(new Fraction(2,3)));
+    }
+
+    @Test
+    public void FractionDivideFraction() {
+        assertEquals(new Fraction(1), new Fraction(1,2).divide(new Fraction(1,2)));
+        assertEquals(new Fraction(3,7), new Fraction(3,4).divide(new Fraction(7,4)));
+    }
+
+    @Test
+    public void FractionDivideZero() {
+        try {
+            Fraction result = new Fraction(1,4).divide(new Fraction(0));
+        } catch (Exception ex) {
+            assertEquals(ArithmeticException.class, ex.getClass());
+            assertEquals("Divide By Zero", ex.getMessage());
+        }
     }
 }
 

@@ -9,6 +9,9 @@ public class Fraction {
         this.denominator = 1;
     }
     public Fraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new ArithmeticException("Divide By Zero");
+        }
         int gcdValue = gcd(numerator, denominator);
         this.numerator = numerator/gcdValue;
         this.denominator = denominator/gcdValue;
@@ -35,5 +38,18 @@ public class Fraction {
             else
                 return a;
         return gcd(b,a % b);
+    }
+
+    public Fraction subtract(Fraction that) {
+        return new Fraction(this.numerator * that.denominator - this.denominator * that.numerator,
+                this.denominator * that.denominator);
+    }
+
+    public Fraction mutiply(Fraction that) {
+        return new Fraction(this.numerator * that.numerator,this.denominator * that.denominator);
+    }
+
+    public Fraction divide(Fraction that) {
+        return mutiply(new Fraction(that.denominator, that.numerator));
     }
 }
