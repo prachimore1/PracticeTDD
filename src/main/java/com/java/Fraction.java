@@ -9,31 +9,23 @@ public class Fraction {
         this.denominator = 1;
     }
     public Fraction(int numerator, int denominator) {
-        this.numerator = numerator;
-        this.denominator = denominator;
+        int gcdValue = gcd(numerator, denominator);
+        this.numerator = numerator/gcdValue;
+        this.denominator = denominator/gcdValue;
     }
 
     public Fraction plus(Fraction that) {
-        if(this.denominator != that.denominator) {
-            return reduce(new Fraction(this.numerator*that.denominator+this.denominator*that.numerator,this.denominator*that.denominator));
-        } else {
-            return reduce(new Fraction(this.numerator+that.numerator, denominator));
-        }
+        return new Fraction(this.numerator * that.denominator + this.denominator * that.numerator,
+                this.denominator * that.denominator);
     }
 
     @Override
     public boolean equals(Object obj) {
-        Fraction that = (Fraction) obj;
-        return this.numerator==that.numerator && this.denominator ==that.denominator;
-    }
-
-    public int getNum() {
-        return this.numerator;
-    }
-
-    private Fraction reduce(Fraction result) {
-        int gcdValue = gcd(result.numerator, result.denominator);
-        return new Fraction(result.numerator/gcdValue, result.denominator/gcdValue);
+        if (obj.getClass() == getClass()) {
+            Fraction that = (Fraction) obj;
+            return this.numerator == that.numerator && this.denominator == that.denominator;
+        }
+        return false;
     }
 
     private int gcd(int a, int b) {

@@ -5,25 +5,25 @@ import org.junit.Test;
 
 public class FractionTest {
     @Test
-    public void zeroCheck() throws Exception {
-        assertEquals(new Fraction(0).getNum(), new Fraction(0).plus(new Fraction(0)).getNum());
+    public void zeroCheck() {
+        assertEquals(new Fraction(0), new Fraction(0).plus(new Fraction(0)));
     }
 
     @Test
-    public void zeroPlusNonZeroCheck() throws Exception {
-        assertEquals(new Fraction(5).getNum(), new Fraction(0).plus(new Fraction(5)).getNum());
+    public void zeroPlusNonZeroCheck() {
+        assertEquals(new Fraction(5), new Fraction(0).plus(new Fraction(5)));
     }
 
     @Test
     public void NegativePlusPositiveCheck() {
-        assertEquals(new Fraction(1).getNum(),new Fraction(-1).plus(new Fraction(2)).getNum());
+        assertEquals(new Fraction(1),new Fraction(-1).plus(new Fraction(2)));
     }
 
     @Test
     public void FractionsWithSameDenominator() {
         assertEquals(new Fraction(3,5),new Fraction(1,5).plus(new Fraction(2,5)));
     }
-    
+
     @Test
     public void FractionsWithDiffDenominator() {
         assertEquals(new Fraction(5,6),new Fraction(1,2).plus(new Fraction(1,3)));
@@ -47,3 +47,4 @@ public class FractionTest {
         assertEquals(new Fraction(1,4), new Fraction(-1,-2).plus(new Fraction(-1,4)));
     }
 }
+
