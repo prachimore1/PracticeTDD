@@ -81,4 +81,3 @@ public class FractionTest {
         }
     }
 }
-// Some unnecessary comment
