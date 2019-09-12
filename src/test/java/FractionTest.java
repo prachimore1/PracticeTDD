@@ -61,8 +61,8 @@ public class FractionTest {
 
     @Test
     public void FractionMultiplyFraction() {
-        assertEquals(new Fraction(1,4), new Fraction(1,2).mutiply(new Fraction(1,2)));
-        assertEquals(new Fraction(1,6), new Fraction(1,4).mutiply(new Fraction(2,3)));
+        assertEquals(new Fraction(1,4), new Fraction(1,2).multiply(new Fraction(1,2)));
+        assertEquals(new Fraction(1,6), new Fraction(1,4).multiply(new Fraction(2,3)));
     }
 
     @Test

@@ -44,11 +44,11 @@ public class Fraction {
                 this.denominator * that.denominator);
     }
 
-    public Fraction mutiply(Fraction that) {
+    public Fraction multiply(Fraction that) {
         return new Fraction(this.numerator * that.numerator,this.denominator * that.denominator);
     }
 
     public Fraction divide(Fraction that) {
-        return mutiply(new Fraction(that.denominator, that.numerator));
+        return multiply(new Fraction(that.denominator, that.numerator));
     }
 }
