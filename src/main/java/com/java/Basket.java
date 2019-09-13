@@ -3,6 +3,7 @@ package com.java;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class Basket {
     List<Integer> books;
@@ -22,10 +23,8 @@ public class Basket {
         }
     }
     public double checkout() {
-        if(books.size() != 1) {
-            return books.size() * 8.00d;
-        } else {
-            return books.size() * 8.00d;
-        }
+        // put list in set and check if both are equal
+        return books.size() * 8.00d;
     }
+
 }
