@@ -22,6 +22,10 @@ public class Basket {
         }
     }
     public double checkout() {
-        return books.size() * 8.00d;
+        if(books.size() != 1) {
+            return books.size() * 8.00d;
+        } else {
+            return books.size() * 8.00d;
+        }
     }
 }

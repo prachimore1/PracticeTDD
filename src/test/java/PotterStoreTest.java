@@ -21,7 +21,7 @@ public class PotterStoreTest {
         basketTest.add(1);
         basketTest.add(2);
         double actual = basketTest.checkout();
-        assertTrue(8.0d - actual < 0.001);
+        assertTrue(16.0d - actual < 0.001);
     }
 
     @Test
@@ -33,10 +33,15 @@ public class PotterStoreTest {
         basketTest.add(2);
         basketTest.add(5);
         double actual = basketTest.checkout();
-        assertTrue(0.0d - actual < 0.001);
+        assertTrue(40.0d - actual < 0.001);
     }
 
     @Test
     public void twoSameBooksTest() {
+        basketTest = new Basket();
+        basketTest.add(1);
+        basketTest.add(1);
+        double actual = basketTest.checkout();
+        assertTrue(15.2  - actual< 0.001);
     }
 }
